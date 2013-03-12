@@ -1,0 +1,46 @@
+<form id="customize-form" class="form" method="POST">
+	<% IF error %>
+	<p class="error"><% error %></p>
+	<% END %>
+
+	<h3>Personal information</h3>
+	<p class="padding">
+		<label for="name" class="w120">Your name:</label>
+		<% name = "" %>
+		<% IF vars.player.activated %>
+			<% name = vars.player.name %>
+		<% END %>
+		<input id="name" class="w350" name="name" type="text" value="<% name %>"></input>
+	</p>
+
+	<h3>Game options</h3>
+
+	<p class="padding">
+		<input if="no-sound" name="no-sound" type="checkbox" <% IF vars.player.noSound %>checked<% END %>></input>
+		<label for="no-sound">No sound</label>
+	</p>
+
+	<h3>Password</h3>
+
+	<p class="padding">
+		<label for="password" class="w120">Password:</label>
+		<input id="password" class="w350" name="password" type="password"></input>
+	</p>
+
+	<% IF vars.player.activated %>
+	<p class="padding">
+		<label for="password" class="w120">New password:</label>
+		<input id="new-password" class="w350" name="new-password" type="password"></input>
+	</p>
+
+	<p class="padding">
+		<label for="password" class="w120">Confirm password:</label>
+		<input id="confirm-password" class="w350" name="confirm-password" type="password"></input>
+	</p>
+
+	<% END %>
+
+	<p>
+		<input type="submit" value="Save"/>
+	</p>
+</form>

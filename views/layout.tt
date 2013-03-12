@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <% vars.commons.title %>
+    <% vars.commons.meta %>
+    <% vars.commons.css %>
+    <% vars.commons.script %>
+    <link rel="stylesheet" href="/commons/css/commons.css?v=1.0">
+  </head>
+  <body>
+    <% vars.commons.advertisment %>
+    <% vars.commons.header %>
+    <% content %>
+  </body>
+</html>

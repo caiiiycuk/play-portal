@@ -1,0 +1,15 @@
+<noindex>
+<div class="play-header">
+	<div class="play-header-home menu-item left"><a href="/">Home</a></div>
+	<div class="play-header-player menu-item right">
+		<% IF vars.player.activated %>
+			<a href="/commons/customize/"><% vars.player.name %></a>
+			[<a href="/commons/login/">logout</a>]
+		<% ELSE %>
+			<a href="/commons/customize/">create</a>
+		<% END %>
+	</div>
+	<div class="play-header-game menu-item right"><a href="/"><% vars.title %></a></div>
+	<div class="play-header-ending"></div>
+</div>
+</noindex>

@@ -1,0 +1,21 @@
+<form id="login-form" class="form" method="POST">
+	<% IF error %>
+	<p class="error"><% error %></p>
+	<% END %>
+
+	<h3>Login</h3>
+
+	<p class="padding">
+		<label for="name" class="w120">Your name:</label>
+		<input id="name" class="w350" name="name" type="text"></input>
+	</p>
+
+	<p class="padding">
+		<label for="password" class="w120">Password:</label>
+		<input id="password" class="w350" name="password" type="password"></input>
+	</p>
+
+	<p>
+    	<input type="submit" value="Login"/>
+	</p>
+</form>
