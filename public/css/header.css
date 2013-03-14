@@ -73,6 +73,10 @@ body {
 	background: url('../images/user.png') no-repeat left center;
 }
 
+.play-header-save {
+	background: url('../images/save.png') no-repeat left center;
+}
+
 .play-header-game {
 	background: url('../images/game.png') no-repeat left center;
 }

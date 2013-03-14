@@ -16,6 +16,11 @@
 	</p>
 
 	<p>
-    	<input type="submit" value="Login"/>
+    	<input type="submit" value="Login"/>&nbsp;&nbsp;&nbsp;
+    	<% IF go %>
+    		<noindex><a href="/commons/customize/?go=<% go %>">Create account</a></nodex>
+    	<% ELSE %>
+    		<noindex><a href="/commons/customize/">Create account</a></nodex>
+    	<% END %>
 	</p>
 </form>

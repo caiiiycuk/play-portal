@@ -10,7 +10,7 @@ get '/commons/login' => sub {
 };
 
 get '/commons/login/' => sub {
-	renderView 'login.tt';
+	renderView 'login.tt', { go => param('go') };
 };
 
 post '/commons/login/' => sub {
@@ -24,8 +24,13 @@ post '/commons/login/' => sub {
 		my $player = new Player($uuid);	
 		die "Wrong login or password\n" unless ($player->matchPassword($password));
 
-		cookie 'ttd-save-uuid' => $player->uuid(), expires => "1 year";
-		redirect '/';
+		cookie 'uuid' => $player->uuid(), expires => "1 year", path => "/";
+		
+		if (param('go')) {
+			redirect param('go');
+		} else {
+			redirect '/';
+		}
 	} catch {
 		renderView 'login.tt', {error => $_};
 	};

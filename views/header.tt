@@ -6,9 +6,10 @@
 			<a href="/commons/customize/"><% vars.player.name %></a>
 			[<a href="/commons/login/">logout</a>]
 		<% ELSE %>
-			<a href="/commons/customize/">create</a>
+			<a href="/commons/login/">login</a>
 		<% END %>
 	</div>
+	<div class="play-header-save menu-item right"><a href="/commons/saves/">Saves</a></div>
 	<div class="play-header-game menu-item right"><a href="/"><% vars.title %></a></div>
 	<div class="play-header-ending"></div>
 </div>

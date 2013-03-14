@@ -6,6 +6,7 @@ use Exporter 'import';
 our @EXPORT = qw(renderTitle renderCss renderScript renderHeader renderMeta renderAdvertisment renderView);
 
 use Play::Assets;
+use Play::Save;
 
 sub renderTitle {
   my $title = config->{'title'};
@@ -52,7 +53,7 @@ sub renderHeader {
 }
 
 sub renderAdvertisment {
-  renderView('advertisment.tt', { 'without_layout' => });
+  renderView('advertisment.tt', { 'without_layout' => 1 });
 }
 
 sub renderCss {
@@ -62,11 +63,12 @@ CSS
 }
 
 sub renderScript {
+  my $arguments = shift || '[]';
 	my $player = var 'player';
-	my $arguments = var 'arguments';
 	my $name = $player->name();	
 	my $uuid = $player->uuid();
 	my $googleAnalytics = config->{'analytics'};
+  my $saves = to_json(Play::Save::saves($uuid));
 
 	die "Google analytics not set\n" unless $googleAnalytics;
 
@@ -89,7 +91,8 @@ sub renderScript {
   var Engine = {
     'player-name': '$name',
     'player-uuid': '$uuid',
-    'arguments': $arguments
+    'arguments': $arguments,
+    'saves': $saves
   };
 </script>
 

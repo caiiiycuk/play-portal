@@ -8,6 +8,7 @@ use Play::Fragments;
 use Play::Player;
 use Play::Login;
 use Play::Customize;
+use Play::Save;
 
 get '/commons/**' => sub {
     my $path = request->path;
@@ -30,22 +31,22 @@ get '/commons/**' => sub {
 };
 
 hook before => sub {
-	my $uuid = cookie 'ttd-save-uuid';
+	my $uuid = cookie 'uuid';
 
 	unless ($uuid) {
 		$uuid = create_UUID_as_string(UUID_V1);
-		cookie 'ttd-save-uuid' => $uuid, expires => "1 year";
+		cookie 'uuid' => $uuid, expires => "1 year";
 	}
 
 	my $player = new Player($uuid);
+	
 	var 'player' => $player;
-	var 'arguments' => '[]';
 	var 'title' => config->{title};
 	var 'commons' => {
 		title => renderTitle,
 		meta => renderMeta,
 		css => renderCss,
-		script => renderScript,
+		script => sub { renderScript(@_) },
 		advertisment => renderAdvertisment,
 		header => renderHeader
 	};

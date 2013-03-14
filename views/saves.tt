@@ -1,0 +1,18 @@
+<form>
+  <h3>Saved games</h3>
+
+  <p class="padding">
+    <% IF saves.keys.size == 0 %>
+      <strong>Not found any saves</strong>
+    <% ELSE %>
+      <ul>
+      <noindex>
+      <% FOREACH key IN saves.keys %>
+        <li><a href="<% saves.$key %>" target="_blank"><% key %></a></li>
+      <% END %>
+      </noindex>
+      </ul>
+    <% END %>
+  </p>
+
+</form>

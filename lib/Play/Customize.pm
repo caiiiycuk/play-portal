@@ -37,7 +37,11 @@ post '/commons/customize/' => sub {
 		$player->setNoSound(defined $noSound);
 		$player->update();
 
-		redirect '/';
+		if (param('go')) {
+			redirect param('go');
+		} else {
+			redirect '/';
+		}
 	} catch {
 		renderView 'customize.tt', { error => $_ };
 	};
