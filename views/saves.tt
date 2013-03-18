@@ -1,5 +1,6 @@
 <form>
-  <h3>Saved games</h3>
+  <h1><% vars.title %></h1>
+  <h2>Saved games</h2>
 
   <p class="padding">
     <% IF saves.keys.size == 0 %>
