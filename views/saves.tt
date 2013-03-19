@@ -8,8 +8,8 @@
     <% ELSE %>
       <ul>
       <noindex>
-      <% FOREACH key IN saves.keys %>
-        <li><a href="<% saves.$key %>" target="_blank"><% key %></a></li>
+      <% FOREACH pair IN saves.pairs %>
+         <li><a href="<% pair.value %>" target="_blank"><% pair.key %></a></li>
       <% END %>
       </noindex>
       </ul>
