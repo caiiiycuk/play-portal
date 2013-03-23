@@ -10,6 +10,14 @@ use Play::Login;
 use Play::Customize;
 use Play::Save;
 
+get '/commons/logout' => sub {
+  redirect '/commons/logout/', 301;
+};
+
+get '/commons/logout/' => sub {
+  redirect '/';
+};
+
 get '/commons/**' => sub {
     my $path = request->path;
 
@@ -31,25 +39,26 @@ get '/commons/**' => sub {
 };
 
 hook before => sub {
-	my $uuid = cookie 'uuid';
+  my $uuid = cookie 'uuid';
 
-	unless ($uuid) {
-		$uuid = create_UUID_as_string(UUID_V1);
-		cookie 'uuid' => $uuid, expires => "1 year";
-	}
+  if (!$uuid || 
+    request->request_uri() eq '/commons/logout/') {
+    $uuid = create_UUID_as_string(UUID_V1);
+    cookie 'uuid' => $uuid, expires => "1 year";
+  }
 
-	my $player = new Player($uuid);
-	
-	var 'player' => $player;
-	var 'title' => config->{title};
-	var 'commons' => {
-		title => renderTitle,
-		meta => renderMeta,
-		css => renderCss,
-		script => sub { renderScript(@_) },
-		advertisment => renderAdvertisment,
-		header => renderHeader
-	};
+  my $player = new Player($uuid);
+  
+  var 'player' => $player;
+  var 'title' => config->{title};
+  var 'commons' => {
+    title => renderTitle,
+    meta => renderMeta,
+    css => renderCss,
+    script => sub { renderScript(@_) },
+    advertisment => renderAdvertisment,
+    header => renderHeader
+  };
 };
 
 true;

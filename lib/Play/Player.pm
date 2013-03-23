@@ -50,6 +50,11 @@ sub setNoSound {
     $self->{noSound} = $noSound;
 }
 
+sub noSound {
+    my $self = shift;
+    return $self->{noSound};
+}
+
 sub makePassword {
     return md5_base64 shift;
 }

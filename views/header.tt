@@ -4,7 +4,7 @@
 	<div class="play-header-player menu-item right">
 		<% IF vars.player.activated %>
 			<a href="/commons/customize/"><% vars.player.name %></a>
-			[<a href="/commons/login/">logout</a>]
+			[<a href="/commons/logout/">logout</a>]
 		<% ELSE %>
 			<a href="/commons/login/">login</a>
 		<% END %>
