@@ -9,6 +9,7 @@ use Play::Player;
 use Play::Login;
 use Play::Customize;
 use Play::Save;
+use Play::Games;
 
 get '/commons/logout' => sub {
   redirect '/commons/logout/', 301;

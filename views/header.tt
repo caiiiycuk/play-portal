@@ -10,7 +10,7 @@
 		<% END %>
 	</div>
 	<div class="play-header-save menu-item right"><a href="/commons/saves/">Saves</a></div>
-	<div class="play-header-game menu-item right"><a href="/"><% vars.title %></a></div>
+	<div class="play-header-game menu-item right"><a href="/games/"><% vars.title %></a></div>
 	<div class="play-header-ending"></div>
 </div>
 </noindex>
