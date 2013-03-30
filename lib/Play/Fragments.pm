@@ -9,16 +9,15 @@ use Play::Assets;
 use Play::Save;
 
 sub renderTitle {
-  my $title = config->{'title'};
+  my $title = shift || config->{'title'};
   return <<TITLE;
 <title>$title</title>
 TITLE
 }
 
 sub renderMeta {
-  my $description = config->{'description'};
-  my $keywords = config->{'keywords'};
-
+  my $description = shift || config->{'description'};
+  my $keywords = shift || config->{'keywords'};
 
 	return <<META;
 <meta charset="utf-8">

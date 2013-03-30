@@ -1,5 +1,5 @@
-<noindex>
 <div class="play-header">
+<noindex>
 	<div class="play-header-home menu-item left"><a href="/">Home</a></div>
 	<div class="play-header-player menu-item right">
 		<% IF vars.player.activated %>
@@ -10,7 +10,9 @@
 		<% END %>
 	</div>
 	<div class="play-header-save menu-item right"><a href="/commons/saves/">Saves</a></div>
-	<div class="play-header-game menu-item right"><a href="/games/">Games</a></div>
-	<div class="play-header-ending"></div>
-</div>
 </noindex>
+	<div class="play-header-game menu-item right"><a href="/games/">Games</a></div>
+<noindex>	
+	<div class="play-header-ending"></div>
+</noindex>	
+</div>
