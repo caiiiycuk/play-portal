@@ -4,6 +4,9 @@ use Dancer ':syntax';
 use File::Slurp;
 use Play::Fragments;
 
+use IO::Compress::Gzip qw(gzip);
+use IO::Uncompress::Gunzip qw(gunzip);
+
 my $data = config->{'data'} . config->{'folder'};
 
 # Routing
@@ -36,7 +39,13 @@ sub saves {
 	my $root = root($uuid);
 	if (-e $root) {
 		my @files = read_dir($root);
-		my %files = map { $_ => "/save/$uuid/$_" } @files;
+		my %files = map { 
+			if ($_ =~ m/(.*)\.gz$/) {
+				$1 => "/save/$uuid/$1"
+			} else {
+				$_ => "/save/$uuid/$_"
+			}
+		} @files;
 		return \%files;
 	}
 	return {};
@@ -60,12 +69,9 @@ sub write {
 	my $root = root($uuid);
 	mkdir($root) unless (-d $root);
 
-	my $target = $root . $file;
+	my $target = $root . $file . '.gz';
 
-	open F, ">$target";
-	binmode F;
-	print F $body;
-	close F;
+	gzip \$body, $target;
 };
 
 sub read {
@@ -73,9 +79,14 @@ sub read {
 
 	my $root = root($uuid);
 	my $target = $root . $file;
+	my $target_gz = $target . '.gz';
 	
 	if (-e $target) {
 		send_file($target, system_path => 1);
+	} elsif (-e $target_gz) {
+		my $uncompressed;
+		gunzip $target_gz, \$uncompressed;
+		send_file(\$uncompressed, filename => $file);
 	} else {
 		send_file(mockFile(), system_path => 1);
 	}
