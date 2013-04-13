@@ -1,5 +1,5 @@
 <form id="login-form" class="form" method="POST">
-  <h2>Transport Tycoon Deluxe</h2>
+  <h2><% vars.i18n.title %></h2>
 	<% IF error %>
 	<p class="error"><% error %></p>
 	<% END %>
