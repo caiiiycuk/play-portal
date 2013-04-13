@@ -1,18 +1,14 @@
 <div class="play-header">
-<noindex>
-	<div class="play-header-home menu-item left"><a href="/">Home</a></div>
+	<div class="play-header-home menu-item left"><a href="/"><% vars.i18n.home %></a></div>
 	<div class="play-header-player menu-item right">
 		<% IF vars.player.activated %>
-			<a href="/commons/customize/"><% vars.player.name %></a>
-			[<a href="/commons/logout/">logout</a>]
+			<a href="/commons/customize/" rel="nofollow"><% vars.player.name %></a>
+			[<a href="/commons/logout/" rel="nofollow"><% vars.i18n.logout %></a>]
 		<% ELSE %>
-			<a href="/commons/login/">login</a>
+			<a href="/commons/login/" rel="nofollow"><% vars.i18n.login %></a>
 		<% END %>
 	</div>
-	<div class="play-header-save menu-item right"><a href="/commons/saves/">Saves</a></div>
-</noindex>
-	<div class="play-header-game menu-item right"><a href="/games/">Games</a></div>
-<noindex>	
+	<div class="play-header-save menu-item right"><a href="/commons/saves/" rel="nofollow"><% vars.i18n.download_saves %></a></div>
+	<div class="play-header-game menu-item right"><a href="/games/"><% vars.i18n.games %></a></div>
 	<div class="play-header-ending"></div>
-</noindex>	
 </div>

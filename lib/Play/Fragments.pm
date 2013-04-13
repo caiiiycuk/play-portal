@@ -9,15 +9,16 @@ use Play::Assets;
 use Play::Save;
 
 sub renderTitle {
-  my $title = shift || config->{'title'};
+  my $title = var('i18n')->{title};
   return <<TITLE;
 <title>$title</title>
 TITLE
 }
 
 sub renderMeta {
-  my $description = shift || config->{'description'};
-  my $keywords = shift || config->{'keywords'};
+  my $description = var('i18n')->{description};
+  my $keywords = var('i18n')->{keywords};
+  my $alternates = var('alternates');
 
 	return <<META;
 <meta charset="utf-8">
@@ -26,6 +27,7 @@ sub renderMeta {
 <meta name="description" content="$description" />
 <meta name="keywords" content="$keywords" />
 <link rel="icon" type="image/ico" href="/favicon.ico" />
+$alternates
 META
 }
 
@@ -67,6 +69,7 @@ sub renderScript {
 	my $name = $player->name();	
 	my $uuid = $player->uuid();
 	my $googleAnalytics = config->{'analytics'};
+  my $yandexMetrika = config->{'metrika'};
   my $saves = to_json(Play::Save::saves($uuid));
 
 	die "Google analytics not set\n" unless $googleAnalytics;
@@ -83,6 +86,33 @@ sub renderScript {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter20959015 = new Ya.Metrika({id:$yandexMetrika,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/$yandexMetrika" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 

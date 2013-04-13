@@ -1,27 +1,25 @@
 <form id="login-form" class="form" method="POST">
-  <h1><% vars.title %></h1>
+  <h2>Transport Tycoon Deluxe</h2>
 	<% IF error %>
 	<p class="error"><% error %></p>
 	<% END %>
 
-	<h2>Login</h2>
-
 	<p class="padding">
-		<label for="name" class="w120">Your name:</label>
+		<label for="name" class="w120"><% vars.i18n.nickname %></label>
 		<input id="name" class="w350" name="name" type="text"></input>
 	</p>
 
 	<p class="padding">
-		<label for="password" class="w120">Password:</label>
+		<label for="password" class="w120"><% vars.i18n.password %></label>
 		<input id="password" class="w350" name="password" type="password"></input>
 	</p>
 
 	<p>
-    	<input type="submit" value="Login"/>&nbsp;&nbsp;&nbsp;
+    	<input type="submit" value="<% vars.i18n.login %>"/>&nbsp;&nbsp;&nbsp;
     	<% IF go %>
-    		<noindex><a href="/commons/customize/?go=<% go %>">Create account</a></nodex>
+    		<a href="/commons/customize/?go=<% go %>" rel="nofollow"><% vars.i18n.create_account %></a>
     	<% ELSE %>
-    		<noindex><a href="/commons/customize/">Create account</a></nodex>
+    		<a href="/commons/customize/" rel="nofollow"><% vars.i18n.create_account %></a>
     	<% END %>
 	</p>
 </form>

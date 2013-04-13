@@ -1,17 +1,19 @@
 package Play::Assets;
 
 use Exporter 'import';
+use Dancer;
 
-our @EXPORT = qw(view public);
+our @EXPORT = qw(view public root);
 
-my $root = libPath();
-my @publcs = (
+my $root = root();
+
+my @publics = (
 		$root . "/public",
 		$root . "/public/images/",
 		$root . "/public/css/",
 	);
 
-sub libPath {
+sub root {
 	foreach (@INC) {
 		if (m/(^.*play-portal)/) {
 			return $1;
@@ -21,13 +23,12 @@ sub libPath {
 	die "Unable to find play-portal path\n";
 };
 
-
 sub view {
 	return $root . "/views/" . shift; 
 };
 
 sub public {
-	return @publcs;
-}
+	return @publics;
+};
 
 1;

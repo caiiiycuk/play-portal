@@ -1,15 +1,14 @@
 <form>
-  <h1><% vars.title %></h1>
-  <h2>Saved games</h2>
+  <h2><% vars.i18n.saved_games %></h2>
 
   <p class="padding">
     <% IF saves.keys.size == 0 %>
-      <strong>Not found any saves</strong>
+      <strong><% vars.i18n.not_found %></strong>
     <% ELSE %>
       <ul>
       <noindex>
       <% FOREACH pair IN saves.pairs %>
-         <li><a href="<% pair.value %>" target="_blank"><% pair.key %></a></li>
+         <li><a href="<% pair.value %>" target="_blank" rel="nofollow"><% pair.key %></a></li>
       <% END %>
       </noindex>
       </ul>

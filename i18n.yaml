@@ -1,0 +1,65 @@
++:
+  en:
+    games: Games
+    download_saves: Download saves
+    login: Login
+    logout: logout
+    home: Home
+  ru:
+    games: Другие игры
+    download_saves: Скачать сохранения
+    login: Войти
+    logout: выйти
+    home: Главная
+
+/games/:
+  en:
+    ttd_header: Transport Tycoon Deluxe
+    ttd_content: It's 1950. You're presented with a vast game world made up of numerous small towns and raw material resources. You've got $200,000 and you've got to prove yourself; to set the wheels in motion to become The Transport Tycoon.
+    dune_header: Dune II The Building of A Dynasty
+    dune_content: HE WHO CONTROLS THE SPICE ... CONTROLS THE UNIVERSE<br/><br/>Behold the planet Arrakis, known as Dune - land of sand and home of the spice melange. The spice controls the empire - whoever controls Dune, controls the spice. The emperor has proposed a challenge 'The house that produces the most spice will control dune, there are no terretories... and no rules of engagement'!
+    play_online: Play online
+  ru:
+    ttd_content: Идёт 1950 год. Вокруг огромный мир с множеством городов и земля богатая ресурсами. У вас есть $200,000 что бы показать себя; что бы построить империю и стать транспортным магнатом.
+    dune_content: ТОТ КТО КОНТРОЛИРУЕТ СПАЙС ... КОНТРОЛИРУЕТ ВСЕЛЕННУЮ<br/><br/>Планета Аракис, известная как Дюна - земля песков, месторождение спайса. Спайс управляет имерией - тот кто управляет Дюной, - контроллирует спайс. Вступите в отчаянную борьбу за управление Дюной.
+    play_online: Играть онлайн
+
+/commons/login/:
+  en:
+    nickname: Nickname:
+    password: Password:
+    create_account: Create account
+  ru:
+    nickname: Имя (никнейм):
+    password: Пароль:
+    create_account: Создать аккаунт
+
+/commons/customize/:
+  en:
+    personal_information: Personal information
+    nickname: Nickname:
+    game_options: Game options
+    no_sound: No sound
+    password_h: Password
+    password: Password:
+    new_password: New password:
+    confirm_password: Confirm password:
+    save: Save
+  ru:
+    personal_information: Персональные данные
+    nickname: Имя (никнейм):
+    game_options: Настройки
+    no_sound: Выключить звук
+    password_h: Пароль
+    password: Пароль:
+    new_password: Новый пароль:
+    confirm_password: Подтверждение:
+    save: Сохранить
+
+/commons/saves/:
+  en:
+    saved_games: Saved games
+    not_found: Not found any saves
+  ru:
+    saved_games: Сохраненные игры
+    not_found: Сохраненных игр нет

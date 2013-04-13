@@ -1,15 +1,13 @@
 <div class="games">
-  <h1>Transport Tycoon Deluxe</h1>
+  <h1><% vars.i18n.ttd_header %></h1>
   <p class="ttd">
-    It's 1950. You're presented with a vast game world made up of numerous small towns and raw material resources. You've got $200,000 and you've got to prove yourself; to set the wheels in motion to become The Transport Tycoon.
-
-    <br/><br/><a href="http://play-ttd.com/">Play in browser</a>
+    <% vars.i18n.ttd_content %>
+    <br/><br/><a href="http://play-ttd.com/"><% vars.i18n.play_online %></a>
   </p>
 
-  <h1>Dune II The Building of A Dynasty</h1>
+  <h1><% vars.i18n.dune_header %></h1>
   <p class="dune2">
-    HE WHO CONTROLS THE SPICE ... CONTROLS THE UNIVERSE
-    <br/><br/>Behold the planet Arrakis, known as Dune - land of sand and home of the spice melange. The spice controls the empire - whoever controls Dune, controls the spice. The emperor has proposed a challenge 'The house that produces the most spice will control dune, there are no terretories... and no rules of engagement'1
-    <br/><br/><a href="http://play-dune.com/">Play in browser</a>
+    <% vars.i18n.dune_content %>
+    <br/><br/><a href="http://play-dune.com/"><% vars.i18n.play_online %></a>
   </p>
 </div>

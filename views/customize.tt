@@ -1,12 +1,11 @@
 <form id="customize-form" class="form" method="POST">
-	<h1><% vars.title %></h1>
 	<% IF error %>
 	<p class="error"><% error %></p>
 	<% END %>
 
-	<h2>Personal information</h2>
+	<h2><% vars.i18n.personal_information %></h2>
 	<p class="padding">
-		<label for="name" class="w120">Your name:</label>
+		<label for="name" class="w120"><% vars.i18n.nickname %></label>
 		<% name = "" %>
 		<% IF vars.player.activated %>
 			<% name = vars.player.name %>
@@ -14,34 +13,34 @@
 		<input id="name" class="w350" name="name" type="text" value="<% name %>"></input>
 	</p>
 
-	<h2>Game options</h2>
+	<h2><% vars.i18n.game_options %></h2>
 
 	<p class="padding">
 		<input if="no-sound" name="no-sound" type="checkbox" <% IF vars.player.noSound %>checked<% END %>></input>
-		<label for="no-sound">No sound</label>
+		<label for="no-sound"><% vars.i18n.no_sound %></label>
 	</p>
 
-	<h2>Password</h2>
+	<h2><% vars.i18n.password_h %></h2>
 
 	<p class="padding">
-		<label for="password" class="w120">Password:</label>
+		<label for="password" class="w120"><% vars.i18n.password %></label>
 		<input id="password" class="w350" name="password" type="password"></input>
 	</p>
 
 	<% IF vars.player.activated %>
 	<p class="padding">
-		<label for="password" class="w120">New password:</label>
+		<label for="password" class="w120"><% vars.i18n.new_password %></label>
 		<input id="new-password" class="w350" name="new-password" type="password"></input>
 	</p>
 
 	<p class="padding">
-		<label for="password" class="w120">Confirm password:</label>
+		<label for="password" class="w120"><% vars.i18n.confirm_password %></label>
 		<input id="confirm-password" class="w350" name="confirm-password" type="password"></input>
 	</p>
 
 	<% END %>
 
 	<p>
-		<input type="submit" value="Save"/>
+		<input type="submit" value="<% vars.i18n.save %>"/>
 	</p>
 </form>
