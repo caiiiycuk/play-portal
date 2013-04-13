@@ -73,6 +73,7 @@ sub renderScript {
   my $saves = to_json(Play::Save::saves($uuid));
 
 	die "Google analytics not set\n" unless $googleAnalytics;
+  die "Yandex metrika not set\n" unless $yandexMetrika;
 
 	return <<SCRIPT;
 <script type="text/javascript">
