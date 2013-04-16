@@ -1,13 +1,18 @@
+<% subdomain = vars.locale _ "." %>
+<% IF subdomain == "en." %>
+<% subdomain = '' %>
+<% END %>
+
 <div class="games">
   <h1><% vars.i18n.ttd_header %></h1>
   <p class="ttd">
     <% vars.i18n.ttd_content %>
-    <br/><br/><a href="http://play-ttd.com/"><% vars.i18n.play_online %></a>
+    <br/><br/><a href="http://<% subdomain %>play-ttd.com/"><% vars.i18n.play_online %></a>
   </p>
 
   <h1><% vars.i18n.dune_header %></h1>
   <p class="dune2">
     <% vars.i18n.dune_content %>
-    <br/><br/><a href="http://play-dune.com/"><% vars.i18n.play_online %></a>
+    <br/><br/><a href="http://<% subdomain %>play-dune.com/"><% vars.i18n.play_online %></a>
   </p>
 </div>
