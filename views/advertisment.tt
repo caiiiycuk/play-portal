@@ -3,8 +3,8 @@
 		<script type="text/javascript">
 		<!--
 			google_ad_client = "ca-pub-9186880238664597";
-			/* Global big */
-			google_ad_slot = "4528317367";
+			
+			google_ad_slot = "<% vars.adsense %>";
 			google_ad_width = 728;
 			google_ad_height = 90;
 		//-->

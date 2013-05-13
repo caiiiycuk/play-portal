@@ -57,12 +57,13 @@ hook before => sub {
   my $locale      = localeForHost(request->host);
   my $i18n        = i18n()->{request->path}->{$locale} || i18n()->{'+'}->{$locale};
   my $alternates  = i18nAlternates(request->path);
-
+  my $adsense     = config->{'adsense'} or die "Adsense value not set\n";
 
   var 'locale' => $locale;
   var 'i18n' => $i18n;
   var 'player' => $player;
   var 'alternates' => $alternates;
+  var 'adsense' => $adsense;
 
   var 'title' => config->{title};
   var 'commons' => {
