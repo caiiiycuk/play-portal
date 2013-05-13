@@ -1,5 +1,24 @@
+<% vars.renderShare = 1 %>
+
+<% IF vars.renderShare %>
+<!-- social -->
+<noindex>
+<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+</noindex>
+<!-- social -->
+<% END %>
+
 <div class="play-header">
 	<div class="play-header-home menu-item left"><a href="/"><% vars.i18n.home %></a></div>
+
+<% IF vars.renderShare %>	
+	<noindex>
+		<div class="menu-item left">
+			<div class="yashare-auto-init" data-yashareL10n="<% vars.locale %>" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus" style="margin-top: 9px;"></div>
+		</div>
+	</noindex>
+<% END %>	
+	
 	<div class="play-header-player menu-item right">
 		<% IF vars.player.activated %>
 			<a href="/commons/customize/" rel="nofollow"><% vars.player.name %></a>
